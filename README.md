@@ -65,6 +65,58 @@ cp include/SDL_config.h.default include/SDL_config.h
 
 复制到 SDL-1.2.15-lib/x64
 
+## FFplay 0.4.0
+
+unzip `SDL-1.2.15-lib.zip`
+
+Open `ffplay.dsp`
+
+![ffplay.dsp](Screenshot/ffplay.dsp.png)
+
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误	D8016	“/ZI”和“/Gy-”命令行选项不兼容	ffplay	FFmpeg\FFplay_0.4.0\ffplay_0.4.0\cl	1	
+
+![D8016](Screenshot/D8016.png)
+
+ffplay “项目”—>“属性”—>“C/C++”—>“常规”—>“调试信息格式”—>选择“程序数据库(/Zi)”或“无”
+
+![Zi](Screenshot/Zi.png)
+
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误	C1083	无法打开包括文件: “SDL.h”: No such file or directory	ffplay	Code\FFmpeg\FFplay_0.4.0\ffplay_0.4.0\ffplay.c	15	
+
+![SDL.h](Screenshot/SDL.h.png)
+
+“VC++目录”->“包含目录”
+
+![include_SDL](Screenshot/include_SDL.png)
+
+SDL.lib
+
+![SDL.lib](Screenshot/SDL.lib.png)
+
+“VC++目录”->“包含目录”
+
+![SDL_lib](Screenshot/SDL_lib.png)
+
+![linker_input](Screenshot/linker_input.png)
+
+SDL.dll
+
+![SDL.dll](Screenshot/SDL.dll.png)
+
+copy SDL.dll to Debug
+
+![SDL_dll](Screenshot/SDL_dll.png)
+
+ffplay.exe
+
+```c
+input_filename = "CLOCKTXT_320.avi";
+```
+
+![ffplay](Screenshot/ffplay.png)
+
 ## Error
 
 错误 C2118 表示在下标操作中使用了负数

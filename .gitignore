@@ -56,3 +56,4 @@ Release/
 *log
 .vs/
 x64/
+SDL-1.2.15-lib/
