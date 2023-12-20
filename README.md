@@ -65,6 +65,14 @@ cp include/SDL_config.h.default include/SDL_config.h
 
 复制到 SDL-1.2.15-lib/x64
 
+查看 dll/lib/exe 是 x86 还是 x64：
+
+```bash
+dumpbin.exe /headers dll_or_lib_or_exe
+```
+
+![dumpbin](Screenshot/dumpbin.png)
+
 ## FFplay 0.4.0
 
 unzip `SDL-1.2.15-lib.zip`
@@ -116,6 +124,24 @@ input_filename = "CLOCKTXT_320.avi";
 ```
 
 ![ffplay](Screenshot/ffplay.png)
+
+### x64
+
+新建 `x64` 配置，并设置 include, lib。
+
+![x64_lib](Screenshot/x64_lib.png)
+
+
+```diff
+-#ifdef CONFIG_WIN32
++#ifdef _WIN32
+```
+
+* `CONFIG_WIN32` 只会在 x86/Win32 中定义
+* `_WIN32` 在 x86/x64/Win32 中都会定义
+* `_WIN64` 只在 x64 中定义
+
+![ffplay_x64](Screenshot/ffplay_x64.png)
 
 ## Error
 
